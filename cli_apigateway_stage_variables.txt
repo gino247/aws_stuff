@@ -1,0 +1,27 @@
+aws apigateway update-stage \
+--rest-api-id <id> --stage-name development --cli-input-json \
+'{ 
+    "restApiId": "<id>",
+    "stageName": "development",
+    "patchOperations": [
+        {
+            "op": "replace",
+            "path": "/variables/application_name",
+            "value": "MyCoolApp",
+            "from": ""
+        },
+        {
+            "op": "replace",
+            "path": "/variables/mysql_conn_limit",
+            "value": "5",
+            "from": ""
+        },
+        {
+            "op": "replace",
+            "path": "/variables/mysql_db",
+            "value": "<db_name>",
+            "from": ""
+        },
+        ...
+    ]
+}'
